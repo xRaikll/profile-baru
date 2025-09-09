@@ -1,0 +1,249 @@
+/* Base styles */
+body {
+    font-family: 'Courier New', Courier, monospace;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, #00ffff, #000);
+    color: #fff;
+    overflow-x: hidden;
+    position: relative;
+}
+
+/* Moving images on left and right sides */
+.side-image {
+    position: fixed;
+    top: 50%;
+    width: 100px;
+    height: 100px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    animation: floatUpDown 4s ease-in-out infinite;
+    z-index: 1000;
+    transform: translateY(-50%);
+}
+
+.side-image.left {
+    left: 0;
+}
+
+.side-image.right {
+    right: 0;
+}
+
+@keyframes floatUpDown {
+    0%, 100% {
+        transform: translateY(-50%) translateY(0);
+    }
+    50% {
+        transform: translateY(-50%) translateY(-20px);
+    }
+}
+
+/* Header */
+header {
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 1rem 2rem;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 2px solid #00ffff;
+    box-sizing: border-box;
+    text-align: left;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2.5rem;
+    color: #00ffff;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: flex-end;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    margin-left: 2rem;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+nav ul li a:hover {
+    color: #00ffff;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: flex-end;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    margin-left: 2rem;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: #00ffff;
+}
+
+/* Sections */
+section {
+    padding: 6rem 2rem 4rem;
+    max-width: 900px;
+    margin: 0 auto;
+    position: relative;
+    border: 2px solid #00ffff;
+    border-radius: 15px;
+    margin-bottom: 2rem;
+    background: rgba(0, 0, 0, 0.6);
+    box-shadow: 0 0 15px #00ffff;
+}
+
+/* Skill bars */
+.skill {
+    margin-bottom: 1rem;
+}
+
+.progress-bar {
+    background-color: #222;
+    border-radius: 10px;
+    overflow: hidden;
+    height: 20px;
+    margin-top: 5px;
+}
+
+.progress {
+    background-color: #00ffff;
+    height: 100%;
+    width: 0;
+    transition: width 2s ease;
+}
+
+/* Contact form */
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+form input,
+form textarea {
+    padding: 0.75rem;
+    margin-bottom: 1rem;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+}
+
+form button {
+    background-color: #00ffff;
+    border: none;
+    padding: 0.75rem;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #000;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+}
+
+form button:hover {
+    background-color: #fff;
+}
+
+/* Contact info */
+.contact-info p {
+    margin: 0.5rem 0;
+}
+
+.contact-info a {
+    color: #00ffff;
+    text-decoration: none;
+}
+
+contact-info a:hover {
+    text-decoration: underline;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 1rem;
+    background-color: #000;
+    color: #00ffff;
+    border-top: 2px solid #00ffff;
+}
+
+/* Background animation */
+@keyframes moveBackground {
+    0% {
+        background-position: 0 0;
+    }
+    100% {
+        background-position: 100% 100%;
+    }
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle at 20% 20%, #00ffff, transparent 25%), radial-gradient(circle at 80% 80%, #00ffff, transparent 25%);
+    background-size: 50% 50%;
+    background-repeat: no-repeat;
+    animation: moveBackground 20s linear infinite;
+    z-index: -1;
+    opacity: 0.3;
+}
+
+/* Border animation */
+section {
+    position: relative;
+    overflow: hidden;
+}
+
+section::before {
+    content: "";
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    width: calc(100% + 4px);
+    height: calc(100% + 4px);
+    border: 2px solid #00ffff;
+    border-radius: 15px;
+    box-shadow: 0 0 15px #00ffff;
+    animation: borderGlow 3s ease-in-out infinite alternate;
+    pointer-events: none;
+    z-index: -1;
+}
+
+@keyframes borderGlow {
+    0% {
+        box-shadow: 0 0 5px #00ffff;
+    }
+    100% {
+        box-shadow: 0 0 20px #00ffff;
+    }
+}
